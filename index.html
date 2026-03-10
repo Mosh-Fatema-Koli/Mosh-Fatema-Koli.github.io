@@ -1,244 +1,36 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Fatema Akhter Koli | Flutter Developer</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#f8fafc;
-color:#334155;
-}
-
-/* HERO */
-
-header{
-background:linear-gradient(135deg,#f1f5ff,#fdf2f8);
-padding:80px 20px;
-}
-
-.hero{
-max-width:1100px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
-}
-
-.hero-text{
-flex:1;
-}
-
-.hero-text h1{
-font-size:42px;
-color:#4f46e5;
-}
-
-.hero-text h3{
-margin-top:10px;
-font-weight:500;
-color:#64748b;
-}
-
-.hero-text p{
-margin-top:15px;
-max-width:500px;
-line-height:1.7;
-}
-
-.hero-buttons{
-margin-top:25px;
-}
-
-.btn{
-padding:12px 26px;
-border-radius:30px;
-text-decoration:none;
-font-weight:500;
-margin-right:10px;
-transition:.3s;
-}
-
-.btn-primary{
-background:#6366f1;
-color:white;
-}
-
-.btn-outline{
-border:2px solid #6366f1;
-color:#6366f1;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-}
-
-/* PROFILE IMAGE */
-
-.profile{
-flex:1;
-text-align:center;
-}
-
-.profile img{
-width:360px;
-height:360px;
-object-fit:cover;
-border-radius:30px;
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* CONTAINER */
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-
-/* CARD */
-
-.card{
-background:white;
-border-radius:20px;
-padding:35px;
-margin-bottom:30px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-/* SKILLS */
-
-.skills{
-margin-top:20px;
-}
-
-.skills span{
-background:#eef2ff;
-color:#4f46e5;
-padding:8px 16px;
-border-radius:20px;
-display:inline-block;
-margin:6px;
-font-size:14px;
-}
-
-/* PROJECT GRID */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
-margin-top:25px;
-}
-
-/* APP CARD */
-
-.app-card{
-background:#f8fafc;
-border-radius:25px;
-padding:18px;
-transition:.3s;
-overflow:hidden;
-}
-
-.app-card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.phone-frame{
-background:white;
-padding:10px;
-border-radius:30px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-.phone-frame img{
-width:100%;
-height:500px;
-object-fit:contain;
-border-radius:20px;
-}
-
-.app-card h3{
-margin-top:12px;
-color:#1e293b;
-font-size:16px;
-}
-
-.app-card p{
-font-size:13px;
-margin-top:8px;
-color:#64748b;
-line-height:1.5;
-}
-
-/* WHY ME */
-
-.why{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.why-box{
-background:#eef2ff;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-/* CONTACT */
-
-.contact-box{
-text-align:center;
-}
-
-.contact-btn{
-background:#6366f1;
-color:white;
-padding:14px 30px;
-border-radius:30px;
-display:inline-block;
-margin-top:20px;
-text-decoration:none;
-font-weight:500;
-}
-
-.contact-btn:hover{
-background:#4f46e5;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:25px;
-background:#f1f5f9;
-margin-top:40px;
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+
+<nav>
+
+<h2 class="logo">Fatema Koli</h2>
+
+<div class="menu">
+
+<a href="#about">About</a>
+<a href="#projects">Apps</a>
+<a href="#contact">Contact</a>
+
+<button id="toggle">🌙</button>
+
+</div>
+
+</nav>
 
 <header>
 
@@ -246,29 +38,30 @@ margin-top:40px;
 
 <div class="hero-text">
 
-<h1>Mosh Fatema Akhter Koli</h1>
+<h1>Flutter Developer</h1>
 
-<h3>Flutter Developer | Mobile App Engineer</h3>
+<h3>Fatema Akhter Koli</h3>
 
 <p>
-Flutter developer with 4+ years of experience building scalable
-mobile applications with modern UI, API integration,
-and clean architecture.
+Building scalable mobile apps with Flutter,
+clean architecture and modern UI.
 </p>
 
-<div class="hero-buttons">
+<div class="hero-btn">
 
-<a class="btn btn-primary" href="#contact">Hire Me</a>
+<a class="btn primary" href="#contact">Hire Me</a>
 
-<a class="btn btn-outline" href="https://github.com/fatemakoli58">GitHub</a>
+<a class="btn outline" href="Fatema_Koli_CV.pdf" download>
+Download CV
+</a>
 
 </div>
 
 </div>
 
-<div class="profile">
+<div class="hero-img">
 
-<img src="images/Image.jpeg">
+<img src="images/profile.jpg">
 
 </div>
 
@@ -276,154 +69,159 @@ and clean architecture.
 
 </header>
 
+<section class="stats">
 
-<div class="container">
+<div class="stat">
 
+<h2>4+</h2>
+<p>Years Experience</p>
 
-<div class="card">
+</div>
+
+<div class="stat">
+
+<h2>10+</h2>
+<p>Apps Developed</p>
+
+</div>
+
+<div class="stat">
+
+<h2>5+</h2>
+<p>Production Apps</p>
+
+</div>
+
+</section>
+
+<section id="about">
 
 <h2>About Me</h2>
 
 <p>
-I am a passionate Flutter Developer with over four years of experience
-building cross-platform mobile applications for Android and iOS.
+
+Flutter developer with experience building scalable Android & iOS
+applications using modern architecture, REST APIs and GraphQL.
+
+Currently working on production mobile systems.
+
 </p>
 
-<br>
+</section>
 
-<p>
-My expertise includes Flutter architecture, REST APIs, GraphQL integration,
-Firebase services, and state management using Bloc, GetX and Provider.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h2>Tech Stack</h2>
-
-<div class="skills">
-
-<span>Flutter</span>
-<span>Dart</span>
-<span>Bloc</span>
-<span>GetX</span>
-<span>Provider</span>
-<span>Firebase</span>
-<span>GraphQL</span>
-<span>SQLite</span>
-<span>Swift</span>
-<span>Kotlin</span>
-
-</div>
-
-</div>
-
-
-<div class="card">
+<section id="projects">
 
 <h2>Mobile Apps</h2>
 
-<div class="projects">
+<div class="slider">
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/staysafe.webp">
-</div>
+<div class="slide">
+
+<img src="images/app1.webp">
+
 <h3>Stay Safe</h3>
+
 </div>
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/your_voice.webp">
-</div>
+<div class="slide">
+
+<img src="images/app2.webp">
+
 <h3>Your Voice</h3>
+
 </div>
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/instasure.webp">
-</div>
-<h3>Instasure</h3>
+<div class="slide">
+
+<img src="images/app3.webp">
+
+<h3>Supply Chain App</h3>
+
 </div>
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/scms.png">
-</div>
-<h3>Supply Chain Management</h3>
-</div>
+<div class="slide">
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/ecomarce.png">
-</div>
-<h3>Ecommerce App</h3>
-</div>
+<img src="images/app4.webp">
 
-<div class="app-card">
-<div class="phone-frame">
-<img src="images/frm.webp">
-</div>
-<h3>Feedback Response System</h3>
-</div>
+<h3>Feedback System</h3>
 
 </div>
 
 </div>
 
+</section>
 
-<div class="card">
+<section id="why">
 
-<h2>Why Work With Me</h2>
+<h2>Why Hire Me</h2>
 
-<div class="why">
+<div class="why-grid">
 
 <div class="why-box">
-4+ Years Flutter Experience
+
+<h3>Production Experience</h3>
+
+<p>
+Developed real world mobile applications used by organizations.
+</p>
+
 </div>
 
 <div class="why-box">
-Production Level Applications
+
+<h3>Clean Architecture</h3>
+
+<p>
+Experience with Bloc, GetX, Provider and scalable architecture.
+</p>
+
 </div>
 
 <div class="why-box">
-Clean Scalable Code
+
+<h3>API Integration</h3>
+
+<p>
+REST APIs, GraphQL, Firebase integrations.
+</p>
+
 </div>
 
 <div class="why-box">
-Reliable Communication
-</div>
+
+<h3>Problem Solving</h3>
+
+<p>
+Focused on performance, clean code and maintainability.
+</p>
 
 </div>
 
 </div>
 
+</section>
 
-<div class="card contact-box" id="contact">
+<section id="contact">
 
 <h2>Work With Me</h2>
 
 <p>
-Looking for a Flutter developer for your mobile app project?
-Let's build something amazing together.
+Need a Flutter developer for your mobile app?
 </p>
 
-<a class="contact-btn" href="mailto:fatemakoli58@gmail.com">
+<a class="btn primary" href="mailto:fatemakoli58@gmail.com">
 Contact Me
 </a>
 
-</div>
-
-</div>
-
+</section>
 
 <footer>
 
-© 2026 Fatema Akhter Koli
+<p>© 2026 Fatema Akhter Koli</p>
 
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 
