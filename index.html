@@ -263,30 +263,63 @@ margin:40px 0;
 box-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
 
-/* ========= EXPERIENCE ========= */
+/* ========= EXPERIENCE SECTION ========= */
 
-.experience-section{
-padding:80px 10%;
+.experience-section {
+  padding: 80px 10%;
 }
 
-.experience-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:25px;
-margin-top:40px;
+/* ========= GRID CONTAINER ========= */
+
+.experience-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row (desktop) */
+  gap: 25px;
+  margin-top: 40px;
 }
 
-.experience-card{
-background:#f8fafc;
-color:#1e293b;
-padding:35px;
-border-radius:25px;
-box-shadow:0 12px 30px rgba(0,0,0,0.2);
-transition:.4s;
+/* ========= CARD STYLE ========= */
+
+.experience-card {
+  background: #f8fafc;
+  color: #1e293b;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
 }
 
-.experience-card:hover{
-transform:translateY(-10px);
+.experience-card:hover {
+  transform: translateY(-10px);
+}
+
+/* ========= RESPONSIVE ========= */
+
+/* Tablet (optional - still 2 cards but smaller padding) */
+@media (max-width: 1024px) {
+  .experience-section {
+    padding: 60px 6%;
+  }
+
+  .experience-card {
+    padding: 25px;
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 768px) {
+  .experience-container {
+    grid-template-columns: 1fr; /* 1 card */
+  }
+
+  .experience-section {
+    padding: 50px 5%;
+  }
+
+  .experience-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
 }
 
 /* ========= SKILLS ========= */
@@ -593,28 +626,53 @@ flex:0 0 220px;
 </div>
 
 <div class="stat-card apps">
-<h2>10+</h2>
+<h2>16+</h2>
 <p>Apps Developed</p>
 </div>
 
 <div class="stat-card production">
-<h2>6+</h2>
+<h2>10+</h2>
 <p>Production Apps</p>
 </div>
 
 </section>
 
-<!-- ABOUT -->
 
+<!-- ========= ABOUT SECTION ========= -->
 <section id="about" class="about-section">
 
-<h2>About Me</h2>
+  <div class="about-container">
 
-<p>
+    <h2>About Me</h2>
 
-Highly skilled Flutter Developer & Software Engineer with 4th years of experience building scalable,high-performance mobile applications. Proficient in Flutter, Dart, Swift, and RESTful APIs, with a strong foundation in state management (GetX, Riverpod, Bloc) and UI/UX design. Passionate about delivering user-centric mobile solutions with clean architecture and optimized performance. Adept at working in Agile/Scrum environments and collaborating with cross-functional teams to drive project success. 
+    <p>
+      Strategic Flutter Developer & Software Engineer with over 4 years of experience architecting
+      high-performance, scalable mobile solutions for global organizations.
+    </p>
 
-</p>
+    <p>
+      Expert in Dart and Flutter ecosystems with strong expertise in Clean Architecture and advanced
+      state management including Bloc, GetX, and Provider.
+    </p>
+
+    <p>
+      Proven track record of leading the end-to-end development of 16+ cross-platform applications,
+      reducing app crash rates by 40% and improving responsiveness by 25% through rigorous debugging
+      and API optimization.
+    </p>
+
+    <p>
+      Recognized with the <strong>Best New Recruit Award (2023)</strong> at Save the Children International
+      for outstanding technical contributions and collaborative leadership in Agile/Scrum environments.
+    </p>
+
+    <p>
+      Currently advancing expertise in <strong>AI/ML</strong> and <strong>Cybersecurity</strong> to build
+      the next generation of secure, intelligent mobile platforms.
+    </p>
+
+  </div>
+
 
 </section>
 
@@ -625,46 +683,172 @@ Highly skilled Flutter Developer & Software Engineer with 4th years of experienc
 
   <div class="experience-container">
 
-    <div class="experience-card">
-      <h3>Jr. Software Engineer</h3>
-      <h4>Save the Children International</h4>
-      <span>Dec 2023 – Present</span>
-      <p>Leading development of mission-driven mobile applications including Stay Safe, Box of Wonders, UFind, Your Voice, Myanmar Cash Distribution, Fleet Management System, Feedback Response Mechanism, and Supply Chain Management System.</p>
-      <ul>
-        <li>Built scalable Flutter apps using GetX, Bloc and Provider.</li>
-        <li>Integrated RESTful and real-time APIs.</li>
-        <li>Ensured responsive UI across devices.</li>
-        <li>Managed Google Play & App Store deployments.</li>
-        <li>Collaborated in Agile/Scrum teams.</li>
-      </ul>
-    </div>
+  <div class="experience-card">
+    <h3>Jr. Software Engineer</h3>
+    <h4>Save the Children International</h4>
+    <span>Dec 2023 – Present</span>
 
-    <div class="experience-card">
-      <h3>Programmer</h3>
-      <h4>Instasure Ltd</h4>
-      <span>Feb 2022 – Nov 2023</span>
-      <p>Led development of Instasure and iFlex mobile apps for iOS and Android. Designed responsive UI/UX and integrated APIs, payment gateways, push notifications, and social authentication.</p>
-      <ul>
-        <li>Developed scalable Flutter applications using GetX and Provider.</li>
-        <li>Resolved production issues and improved app stability.</li>
-        <li>Ensured App Store & Google Play compliance.</li>
-      </ul>
-    </div>
+    <p>
+      Architected and deployed 9+ high-impact cross-platform applications 
+      (including Stay Safe, Boxes of Wonder, UFind, Your Voice, Myanmar Cash Distribution, 
+      Fleet Management System, Feedback Response Mechanism, Supply Chain Management System, 
+      and Ondesk App) using Flutter and Dart, ensuring 99.9% crash-free sessions across Android and iOS.
+    </p>
 
-    <div class="experience-card">
-      <h3>Flutter Intern</h3>
-      <h4>DS Legends Pte. Ltd (Singapore)</h4>
-      <span>Oct 2021 – Dec 2021</span>
-      <p>Worked on Flutter application features, integrated REST APIs, and built responsive UI components while collaborating with international developers.</p>
-    </div>
+    <ul>
+      <li>
+        Engineered scalable state management architectures utilizing GetX, Bloc, and Provider 
+        to reduce technical debt and improve long-term maintainability.
+      </li>
+      <li>
+        Standardized Clean Architecture and modular coding practices across the team, 
+        increasing code reusability by 30% and accelerating feature delivery timelines.
+      </li>
+      <li>
+        Optimized backend communication through RESTful API integration and real-time data synchronization, 
+        improving performance, data consistency, and offline capabilities.
+      </li>
+      <li>
+        Directed full-cycle app deployment processes including build automation, testing, 
+        debugging, and successful releases on Google Play Store and Apple App Store.
+      </li>
+      <li>
+        Ensured highly responsive and adaptive UI/UX across a wide range of devices and screen sizes.
+      </li>
+      <li>
+        Collaborated in Agile/Scrum environments with cross-functional teams including UI/UX designers, 
+        QA engineers, and backend developers to deliver user-centric solutions.
+      </li>
+      <li>
+        Actively identified and resolved performance bottlenecks, reducing app crash rates 
+        and improving overall user experience.
+      </li>
+    </ul>
+  </div>
 
-    <div class="experience-card">
-      <h3>Flutter Mobile App Developer</h3>
-      <h4>Freelance / Personal Projects</h4>
-      <span>2021 – Present</span>
-      <p>Developed multiple Flutter applications including learning apps, quiz platforms, and productivity tools. Focused on clean architecture, performance optimization, and modern UI design.</p>
-    </div>
+   <div class="experience-card">
+    <h3>Programmer</h3>
+    <h4>Instasure Ltd</h4>
+  <span>Feb 2022 – Nov 2023</span>
 
+  <p>
+    A company specializing in digital insurance solutions and mobile recharge services. 
+    Delivered high-performance, user-centric mobile applications for both Android and iOS platforms using Flutter.
+  </p>
+
+  <ul>
+    <li>
+      Delivered two high-performance cross-platform applications, <strong>Instasure</strong> and <strong>iFlex</strong>, 
+      ensuring smooth functionality and consistent user experience across Android and iOS.
+    </li>
+    <li>
+      Designed and implemented responsive and intuitive UI/UX, significantly improving user engagement and retention.
+    </li>
+    <li>
+      Integrated secure payment gateways, push notifications, and social authentication systems 
+      (Google, Facebook), enhancing user convenience and accessibility.
+    </li>
+    <li>
+      Developed scalable application architecture using Flutter with GetX and Provider for efficient state management.
+    </li>
+    <li>
+      Optimized API integrations and backend communication, improving app performance and reducing loading times.
+    </li>
+    <li>
+      Resolved 30+ critical production issues, reducing crash rates by 30% and improving overall app stability.
+    </li>
+    <li>
+      Ensured compliance with Google Play Store and Apple App Store guidelines, managing successful deployments and updates.
+    </li>
+    <li>
+      Collaborated with cross-functional teams including designers and backend developers to deliver high-quality features on time.
+    </li>
+    <li>
+      Conducted testing, debugging, and performance tuning to maintain high reliability and smooth user experience.
+    </li>
+  </ul>
+   </div>
+
+  <div class="experience-card">
+  <h3>Flutter Intern</h3>
+  <h4>DS Legends Pte. Ltd (Singapore)</h4>
+  <span>Oct 2021 – Dec 2021</span>
+
+  <p>
+    Worked as a Flutter Intern in a global remote environment, contributing to mobile application development, 
+    UI enhancement, and backend integration while collaborating with international developers.
+  </p>
+
+  <ul>
+    <li>
+      Enhanced Flutter UI by integrating backend REST APIs, improving application responsiveness by 25%.
+    </li>
+    <li>
+      Implemented 5+ core application features following Clean Architecture principles, reducing code complexity 
+      and minimizing bug incidence.
+    </li>
+    <li>
+      Developed reusable and responsive UI components to ensure consistency across different screen sizes and devices.
+    </li>
+    <li>
+      Collaborated with international development teams to deliver features aligned with project requirements and timelines.
+    </li>
+    <li>
+      Assisted in debugging and optimizing existing codebase, improving overall app stability and performance.
+    </li>
+    <li>
+      Gained hands-on experience with Flutter state management and API integration workflows in production-level projects.
+    </li>
+  </ul>
+  </div>
+
+<div class="experience-card">
+  <h3>Flutter Mobile App Developer</h3>
+  <h4>Freelance / Personal Projects</h4>
+  <span>2021 – Present</span>
+
+  <p>
+    Independent Flutter developer specializing in designing and building scalable, high-performance cross-platform mobile applications.
+    Developed multiple production-ready apps including learning platforms, quiz systems, and productivity tools with a strong focus on
+    clean architecture, performance optimization, and modern UI/UX design principles.
+  </p>
+
+  <ul>
+    <li>
+      Built and deployed 8+ cross-platform mobile applications using Flutter and Dart across education, productivity, business, and utility domains.
+    </li>
+    <li>
+      Designed and implemented Clean Architecture with modular and reusable components to ensure scalability, maintainability, and clean code structure.
+    </li>
+    <li>
+      Integrated Firebase services including Authentication, Cloud Firestore, Realtime Database, and Cloud Storage for secure and scalable backend solutions.
+    </li>
+    <li>
+      Implemented push notification systems using Firebase Cloud Messaging (FCM) for real-time updates, user engagement, and alert-based features.
+    </li>
+    <li>
+      Developed real-time chat functionality with Firebase (Firestore/Realtime DB), enabling one-to-one messaging with typing indicators and message synchronization.
+    </li>
+    <li>
+      Integrated Google Maps and location-based services, including geolocation tracking, map markers, and location-aware features.
+    </li>
+    <li>
+      Optimized application performance by improving state management flow (GetX, Bloc, Provider), reducing rebuilds and enhancing responsiveness.
+    </li>
+    <li>
+      Integrated RESTful APIs and local storage solutions (SQLite, Hive) to support offline-first functionality and real-time data sync.
+    </li>
+    <li>
+      Developed interactive applications with dynamic flows such as quizzes, learning modules, and productivity tools with audio and location-based features.
+    </li>
+    <li>
+      Implemented fully responsive UI/UX designs ensuring seamless experience across different screen sizes and devices.
+    </li>
+    <li>
+      Continuously improved applications based on user feedback, focusing on usability, engagement, and retention improvements.
+    </li>
+  </ul>
+</div>
   </div>
 </section>
 
