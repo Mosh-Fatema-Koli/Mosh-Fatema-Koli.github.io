@@ -15,14 +15,14 @@
 <style>
 
 :root{
-  --ink:#0A0E1A;
-  --surface:#12172A;
-  --surface-2:#1A2036;
-  --line:#242B45;
-  --mint:#3DDC97;
-  --coral:#FF6B5E;
-  --text:#F1F5F9;
-  --muted:#8B96AC;
+  --ink:#1A1420;
+  --surface:#231A2C;
+  --surface-2:#2D2138;
+  --line:#3D2F49;
+  --mint:#E8A0BD;
+  --coral:#E3B778;
+  --text:#F5EFEF;
+  --muted:#B0A0B8;
   --radius-s:10px;
   --radius-m:18px;
   --radius-l:28px;
@@ -131,8 +131,8 @@ nav .wrap{
   transition:transform .2s, background .2s;
 }
 
-.btn.primary{ background:var(--mint); color:#08130E; }
-.btn.primary:hover{ background:#4FE8AB; transform:translateY(-2px); }
+.btn.primary{ background:var(--mint); color:#2A1522; }
+.btn.primary:hover{ background:#EDB4CC; transform:translateY(-2px); }
 
 .btn.ghost{
   border:1px solid var(--line);
@@ -152,7 +152,7 @@ nav .wrap{
 }
 .social-row a:hover{ color:var(--text); border-color:var(--mint); }
 
-/* Phone mockup */
+/* Phone mockup - hero */
 
 .phone-stage{ position:relative; display:flex; justify-content:center; }
 
@@ -160,7 +160,7 @@ nav .wrap{
   width:260px;
   height:520px;
   background:var(--surface);
-  border:8px solid #050810;
+  border:8px solid #14101A;
   border-radius:42px;
   box-shadow:0 30px 80px rgba(0,0,0,0.55);
   position:relative;
@@ -173,7 +173,7 @@ nav .wrap{
   top:14px; left:50%;
   transform:translateX(-50%);
   width:70px; height:8px;
-  background:#050810;
+  background:#14101A;
   border-radius:6px;
   z-index:3;
 }
@@ -236,6 +236,20 @@ nav .wrap{
 
 .section{ padding:80px 0; border-top:1px solid var(--line); }
 
+.section-light{
+  background:#FBF3F6;
+  --surface:#FFFFFF;
+  --surface-2:#F7EAF0;
+  --line:#EBD9E2;
+  --text:#2A1A22;
+  --muted:#8A7480;
+  color:var(--text);
+}
+
+.section-light .exp-body p,
+.section-light .about-grid p,
+.section-light .review-card p{ color:#3A2530; }
+
 .section-head{ margin-bottom:40px; max-width:560px; }
 
 .section-head h2{ font-size:30px; margin-bottom:10px; }
@@ -252,7 +266,7 @@ nav .wrap{
 }
 
 .about-grid p{
-  color:#CBD5E1;
+  color:#E4D8E0;
   margin-bottom:16px;
   max-width:520px;
 }
@@ -275,6 +289,8 @@ nav .wrap{
 
 .stat-row .label{ color:var(--muted); font-size:14px; }
 
+.section-light .stat-row .label{ color:#8A7480; }
+
 @media (max-width:860px){
   .about-grid{ grid-template-columns:1fr; }
 }
@@ -295,7 +311,7 @@ nav .wrap{
 .exp-meta h4{ font-size:14px; font-weight:500; color:var(--mint); margin-bottom:8px; }
 .exp-meta span{ font-size:13px; color:var(--muted); }
 
-.exp-body p{ color:#CBD5E1; margin-bottom:14px; }
+.exp-body p{ color:#E4D8E0; margin-bottom:14px; }
 
 .exp-body ul{ margin:0; padding-left:20px; color:var(--muted); }
 .exp-body li{ margin-bottom:8px; line-height:1.55; }
@@ -309,23 +325,49 @@ nav .wrap{
 
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:var(--radius-m);
-  overflow:hidden;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 .skill-cell{
   background:var(--surface);
-  padding:26px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:24px 22px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.skill-cell::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:3px;
+  background:linear-gradient(90deg, var(--mint), var(--coral));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
+
+.skill-cell:hover{
+  transform:translateY(-5px);
+  border-color:var(--mint);
+  box-shadow:0 16px 32px rgba(232,160,189,0.14);
+}
+
+.skill-cell:hover::before{ transform:scaleX(1); }
+
+.skill-icon{
+  font-size:22px;
+  margin-bottom:12px;
+  display:block;
 }
 
 .skill-cell h4{ font-size:14px; color:var(--mint); margin-bottom:10px; }
-.skill-cell p{ color:var(--muted); font-size:14px; }
+.skill-cell p{ color:var(--muted); font-size:13.5px; line-height:1.6; }
 
-@media (max-width:860px){
+@media (max-width:980px){
   .skills-grid{ grid-template-columns:1fr 1fr; }
 }
 @media (max-width:560px){
@@ -341,37 +383,146 @@ nav .wrap{
   padding:8px 14px;
   border-radius:999px;
   color:var(--text);
+  transition:border-color .2s ease, color .2s ease;
 }
 
-/* ===== PROJECTS ===== */
+.tag-row span:hover{
+  border-color:var(--mint);
+  color:var(--mint);
+}
+
+/* ===== PROJECTS (auto-scrolling phone mockups) ===== */
+
+.projects-section-inner{
+  overflow:hidden;
+  position:relative;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
 
 .project-scroll{
   display:flex;
-  gap:20px;
-  overflow-x:auto;
-  padding-bottom:14px;
-  scroll-snap-type:x proximity;
+  gap:22px;
+  width:max-content;
+  animation:projectScroll 38s linear infinite;
 }
 
-.project-scroll::-webkit-scrollbar{ height:6px; }
-.project-scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+.projects-section-inner:hover .project-scroll{
+  animation-play-state:paused;
+}
+
+@keyframes projectScroll{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .project-scroll{ animation:none; }
+}
 
 .project-card{
   flex:0 0 260px;
-  scroll-snap-align:start;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:var(--radius-m);
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.project-phone{
+  height:320px;
+  width:auto;
+  aspect-ratio:9/19.5;
+  background:#14101A;
+  border:6px solid #14101A;
+  border-radius:24px;
+  position:relative;
   overflow:hidden;
+  box-shadow:0 16px 36px rgba(0,0,0,0.45);
 }
 
-.project-card img{
-  width:100%; height:170px; object-fit:cover; display:block; background:var(--surface-2);
+.project-phone::before{
+  content:"";
+  position:absolute;
+  top:7px; left:50%;
+  transform:translateX(-50%);
+  width:40px; height:5px;
+  background:#14101A;
+  border-radius:4px;
+  z-index:2;
 }
 
-.project-card .pc-body{ padding:18px; }
-.project-card h3{ font-size:16px; margin-bottom:4px; }
-.project-card p{ font-size:13px; color:var(--muted); }
+.project-phone img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  background:var(--surface-2);
+}
+
+.project-card.tablet{ flex-basis:460px; }
+
+.project-phone.ipad{
+  height:320px;
+  aspect-ratio:4/3;
+  border-radius:18px;
+  border-width:10px;
+}
+
+.project-phone.ipad::before{
+  top:50%;
+  left:auto;
+  right:6px;
+  transform:translateY(-50%);
+  width:5px; height:5px;
+  border-radius:50%;
+}
+
+.project-card .pc-body{ padding:12px 4px 2px; width:100%; text-align:center; }
+.project-card h3{ font-size:14.5px; margin-bottom:4px; }
+.project-card p{ font-size:12px; color:var(--muted); line-height:1.5; margin-top:4px; }
+.project-card p a{ color:var(--mint); text-decoration:none; }
+.project-card p a:hover{ text-decoration:underline; }
+
+/* ===== OFFICIAL RECOGNITION ===== */
+
+.recognition-badge{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  background:linear-gradient(120deg, rgba(232,160,189,0.10), rgba(227,183,120,0.08));
+  border:1px solid var(--mint);
+  border-radius:var(--radius-l);
+  padding:32px 36px;
+}
+
+.recognition-icon{
+  font-size:44px;
+  flex-shrink:0;
+  width:80px; height:80px;
+  border-radius:50%;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+}
+
+.recognition-label{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--coral);
+  margin-bottom:6px;
+}
+
+.recognition-text h3{ font-size:22px; margin-bottom:8px; }
+.recognition-text p{ color:var(--muted); font-size:14.5px; max-width:640px; }
+
+@media (max-width:700px){
+  .recognition-badge{ flex-direction:column; text-align:center; padding:28px 24px; }
+}
 
 /* ===== WHY ===== */
 
@@ -396,20 +547,68 @@ nav .wrap{
 /* ===== REVIEWS ===== */
 
 .review-scroll{
-  display:flex; gap:20px; overflow-x:auto; padding-bottom:10px;
+  display:flex; gap:22px; overflow-x:auto; padding:10px 4px 20px;
   scroll-snap-type:x proximity;
 }
 
 .review-card{
   flex:0 0 300px;
   scroll-snap-align:start;
-  background:var(--surface);
-  border-left:2px solid var(--coral);
-  border-radius:0 var(--radius-s) var(--radius-s) 0;
-  padding:24px;
+  background:linear-gradient(160deg, var(--surface-2), var(--surface));
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:26px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
-.review-card p{ color:#CBD5E1; margin-bottom:14px; font-size:14.5px; }
+.review-card:nth-child(even){
+  background:linear-gradient(160deg, #2E2338, var(--surface));
+}
+
+.review-card::before{
+  content:"\201C";
+  position:absolute;
+  top:-18px; right:14px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:110px;
+  font-weight:700;
+  color:var(--mint);
+  opacity:0.14;
+  line-height:1;
+  pointer-events:none;
+}
+
+.review-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--mint);
+  box-shadow:0 20px 40px rgba(232,160,189,0.15);
+}
+
+.review-stars{
+  color:var(--coral);
+  font-size:14px;
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.review-card p{ color:#E4D8E0; margin-bottom:18px; font-size:14.5px; position:relative; z-index:1; }
+
+.review-footer{ display:flex; align-items:center; gap:10px; }
+
+.review-avatar{
+  width:34px; height:34px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--mint), var(--coral));
+  color:#2A1522;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:13px;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+
 .review-card span{ font-size:13px; color:var(--muted); }
 
 /* ===== CONTACT ===== */
@@ -441,6 +640,7 @@ footer{
     <div class="brand">Fatema Koli</div>
     <div class="menu">
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Apps</a>
       <a href="#why">Why Hire Me</a>
@@ -465,9 +665,7 @@ footer{
       <div class="social-row">
         <a href="https://www.linkedin.com/in/mosh-fatema-akhter-koli/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/Mosh-Fatema-Koli" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.facebook.com/mosh.fatema.akhter.koli/" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.fiverr.com/moshfatemakoli/" target="_blank" rel="noopener">Fiverr</a>
-        <a href="https://www.upwork.com/freelancers/~018134f03360a0ea29/" target="_blank" rel="noopener">Upwork</a>
+        <a href="mailto:fatemakoli58@gmail.com" target="_blank" rel="noopener">Mail</a>
       </div>
     </div>
 
@@ -483,7 +681,7 @@ footer{
 </header>
 
 <!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="section section-light">
   <div class="wrap about-grid">
     <div>
       <div class="section-head">
@@ -512,8 +710,34 @@ footer{
   </div>
 </section>
 
+<!-- SKILLS (moved to directly follow About Me) -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Technical Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-cell"><span class="skill-icon">📱</span><h4>Mobile Application Development</h4><p>Flutter (Android &amp; iOS), Dart, Kotlin, Swift</p></div>
+      <div class="skill-cell"><span class="skill-icon">🔄</span><h4>State Management</h4><p>BLoC, Riverpod, Provider, GetX</p></div>
+      <div class="skill-cell"><span class="skill-icon">🔌</span><h4>Backend</h4><p>REST APIs, GraphQL, Firebase</p></div>
+      <div class="skill-cell"><span class="skill-icon">🗄️</span><h4>Database</h4><p>SQLite, Hive, Firestore</p></div>
+      <div class="skill-cell"><span class="skill-icon">🏗️</span><h4>Architecture &amp; UI</h4><p>Responsive Design, Clean Architecture</p></div>
+      <div class="skill-cell" style="grid-column:span 2;"><span class="skill-icon">🤖</span><h4>AI Engineering (Foundation Level)</h4><p>Python, Machine Learning, Deep Learning, NLP, LLMs, Prompt Engineering, RAG, AI Agents, LangChain, Vector Databases, OpenAI API</p></div>
+      <div class="skill-cell"><span class="skill-icon">🛠️</span><h4>Tools</h4><p>Git, GitHub Actions, Jira</p></div>
+      <div class="skill-cell"><span class="skill-icon">💬</span><h4>Languages</h4><p>Dart, Python, Swift, C/C++</p></div>
+    </div>
+
+    <div class="tag-row">
+      <span>Flutter</span><span>Dart</span><span>BLoC</span><span>GetX</span><span>Riverpod</span><span>Provider</span>
+      <span>Firebase</span><span>GraphQL</span><span>SQLite</span><span>Kotlin</span><span>Swift</span>
+      <span>Python</span><span>LangChain</span><span>OpenAI API</span><span>RAG</span>
+    </div>
+  </div>
+</section>
+
 <!-- EXPERIENCE -->
-<section id="experience" class="section">
+<section id="experience" class="section section-light">
   <div class="wrap">
     <div class="section-head">
       <h2>Work Experience</h2>
@@ -582,77 +806,146 @@ footer{
   </div>
 </section>
 
-<!-- SKILLS -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Technical Skills</h2>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-cell"><h4>Mobile Development</h4><p>Flutter (Android &amp; iOS), Dart, Kotlin, Swift</p></div>
-      <div class="skill-cell"><h4>State Management</h4><p>BLoC, Riverpod, Provider, GetX</p></div>
-      <div class="skill-cell"><h4>Backend</h4><p>REST APIs, GraphQL, Firebase</p></div>
-      <div class="skill-cell"><h4>Database</h4><p>SQLite, Hive, Firestore</p></div>
-      <div class="skill-cell"><h4>Architecture &amp; UI</h4><p>Responsive Design, Clean Architecture</p></div>
-      <div class="skill-cell"><h4>AI Engineering (Foundation Level)</h4><p>Python, Machine Learning, Deep Learning, NLP, LLMs, Prompt Engineering, RAG, AI Agents, LangChain, Vector Databases, OpenAI API</p></div>
-      <div class="skill-cell"><h4>Tools</h4><p>Git, GitHub Actions, Jira</p></div>
-      <div class="skill-cell"><h4>Languages</h4><p>Dart, Python, Swift, C/C++</p></div>
-    </div>
-
-    <div class="tag-row">
-      <span>Flutter</span><span>Dart</span><span>BLoC</span><span>GetX</span><span>Riverpod</span><span>Provider</span>
-      <span>Firebase</span><span>GraphQL</span><span>SQLite</span><span>Kotlin</span><span>Swift</span>
-      <span>Python</span><span>LangChain</span><span>OpenAI API</span><span>RAG</span>
-    </div>
-  </div>
-</section>
-
 <!-- PROJECTS -->
-<section id="projects" class="section">
+<section id="projects" class="section section-light">
   <div class="wrap">
     <div class="section-head">
       <h2>Mobile Applications</h2>
       <p>A selection of production apps I've shipped across NGO, fintech, and logistics domains.</p>
     </div>
+  </div>
 
+  <div class="projects-section-inner">
     <div class="project-scroll">
+
+      <!-- set 1 -->
       <div class="project-card">
-        <img src="images/staysafe.webp" alt="Stay Safe app screenshot">
-        <div class="pc-body"><h3>Stay Safe</h3><p>Safety alert app for emergency assistance. <a href="#" style="color:var(--mint);">Play Store</a> · <a href="#" style="color:var(--mint);">App Store</a></p></div>
+        <div class="project-phone"><img src="images/stay_safe.png" alt="Stay Safe app screenshot"></div>
+        <div class="pc-body">
+          <h3>Stay Safe</h3>
+          <p>Safety alert app for emergency assistance.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.scibd.scigss" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/us/app/stay-safe-sci/id6708233900" target="_blank" rel="noopener">App Store</a></p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/ondesk.png" alt="Ondesk app screenshot">
-        <div class="pc-body"><h3>Ondesk (HRM)</h3><p>Workforce management: attendance, leave, room booking, travel requests.</p></div>
+        <div class="project-phone"><img src="images/hrm.png" alt="Ondesk app screenshot"></div>
+        <div class="pc-body">
+          <h3>Ondesk (HRM)</h3>
+          <p>Workforce management: attendance, leave, room booking.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.sci.techhub.ondesk" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/us/app/ondesk-hrm-sci/id6738484140" target="_blank" rel="noopener">App Store</a></p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/boxesofwonder.png" alt="Boxes of Wonder app screenshot">
-        <div class="pc-body"><h3>Boxes of Wonder</h3><p>Multi-language kids learning app with animations and avatar creation.</p></div>
+        <div class="project-phone"><img src="images/your_voice.png" alt="Your Voice app screenshot"></div>
+        <div class="pc-body">
+          <h3>Your Voice</h3>
+          <p>Child-friendly multi-language feedback app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.techhub.bangladesh.scibd.your_voice&hl=en" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/bb/app/your-voice-sci/id6738484140" target="_blank" rel="noopener">App Store</a></p>
+        </div>
+      </div>
+      <div class="project-card tablet">
+        <div class="project-phone ipad"><img src="images/bow.png" alt="Boxes of Wonder app screenshot"></div>
+        <div class="pc-body">
+          <h3>Boxes of Wonder</h3>
+          <p>Multi-language kids learning app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.sci.bow" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/your_voice.webp" alt="Your Voice app screenshot">
-        <div class="pc-body"><h3>Your Voice</h3><p>Child-friendly multi-language feedback collection app.</p></div>
+        <div class="project-phone"><img src="images/frm.png" alt="Feedback Response Mechanism screenshot"></div>
+        <div class="pc-body">
+          <h3>Feedback Response Mechanism</h3>
+          <p>Offline/online feedback tracking.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=feedback.response.mechanism.savethechildren" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/frm.webp" alt="Feedback Response Mechanism screenshot">
-        <div class="pc-body"><h3>Feedback Response Mechanism</h3><p>Offline/online feedback tracking system.</p></div>
+        <div class="project-phone"><img src="images/instasure.png" alt="Instasure app screenshot"></div>
+        <div class="pc-body">
+          <h3>Instasure</h3>
+          <p>Customer insurance management app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.instasure" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/instasure.webp" alt="Instasure app screenshot">
-        <div class="pc-body"><h3>Instasure</h3><p>Customer insurance management application.</p></div>
+        <div class="project-phone"><img src="images/mcva.png" alt="MCVA app screenshot"></div>
+        <div class="pc-body">
+          <h3>MCVA App</h3>
+          <p>Mobile app for managing cash distribution.</p>
+        </div>
       </div>
       <div class="project-card">
-        <img src="images/richirichi.png" alt="Richi Richi app screenshot">
-        <div class="pc-body"><h3>Richi Richi App</h3><p>In-house restaurant app with GraphQL, GetX, and Razorpay payments.</p></div>
+        <div class="project-phone"><img src="images/scms.png" alt="Supply Chain Management app screenshot"></div>
+        <div class="pc-body">
+          <h3>Supply Chain Management</h3>
+          <p>Logistics app for tracking shipments, inventory, and deliveries.</p>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="images/chatapp.png" alt="Chatting app screenshot">
-        <div class="pc-body"><h3>Chatting App</h3><p>Real-time chat using Socket.io and Telegram API.</p></div>
+
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/stay_safe.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Stay Safe</h3>
+          <p>Safety alert app for emergency assistance.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.scibd.scigss" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/us/app/stay-safe-sci/id6708233900" target="_blank" rel="noopener">App Store</a></p>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="images/hookstore.png" alt="Hook Store app screenshot">
-        <div class="pc-body"><h3>Hook Store</h3><p>E-commerce app for browsing, cart, and orders.</p></div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/hrm.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Ondesk (HRM)</h3>
+          <p>Workforce management: attendance, leave, room booking.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.sci.techhub.ondesk" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/us/app/ondesk-hrm-sci/id6738484140" target="_blank" rel="noopener">App Store</a></p>
+        </div>
       </div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/your_voice.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Your Voice</h3>
+          <p>Child-friendly multi-language feedback app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.techhub.bangladesh.scibd.your_voice&hl=en" target="_blank" rel="noopener">Play Store</a> || <a href="https://apps.apple.com/bb/app/your-voice-sci/id6738484140" target="_blank" rel="noopener">App Store</a></p>
+        </div>
+      </div>
+      <div class="project-card tablet" aria-hidden="true">
+        <div class="project-phone ipad"><img src="images/bow.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Boxes of Wonder</h3>
+          <p>Multi-language kids learning app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.sci.bow" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
+      </div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/frm.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Feedback Response Mechanism</h3>
+          <p>Offline/online feedback tracking.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=feedback.response.mechanism.savethechildren" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
+      </div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/instasure.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Instasure</h3>
+          <p>Customer insurance management app.</p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.instasure" target="_blank" rel="noopener">Play Store</a></p>
+        </div>
+      </div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/mcva.png" alt=""></div>
+        <div class="pc-body">
+          <h3>MCVA App</h3>
+          <p>Mobile app for managing cash distribution.</p>
+        </div>
+      </div>
+      <div class="project-card" aria-hidden="true">
+        <div class="project-phone"><img src="images/scms.png" alt=""></div>
+        <div class="pc-body">
+          <h3>Supply Chain Management</h3>
+          <p>Logistics app for tracking shipments, inventory, and deliveries.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -672,6 +965,20 @@ footer{
   </div>
 </section>
 
+<!-- OFFICIAL RECOGNITION -->
+<section class="section section-light">
+  <div class="wrap">
+    <div class="recognition-badge">
+      <div class="recognition-icon">🏆</div>
+      <div class="recognition-text">
+        <div class="recognition-label">Official Recognition</div>
+        <h3>Best New Recruit Award &mdash; 2023</h3>
+        <p>Awarded by Save the Children International for outstanding technical contributions and collaborative leadership as a new team member.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="section">
   <div class="wrap">
@@ -679,17 +986,27 @@ footer{
       <h2>Client Reviews</h2>
     </div>
     <div class="review-scroll">
-      <div class="review-card"><p>"Fatema delivered our Flutter application perfectly with clean architecture."</p><span>NGO Project Client</span></div>
-      <div class="review-card"><p>"Very professional developer. Communication was excellent and delivery was fast."</p><span>Upwork Client</span></div>
-      <div class="review-card"><p>"One of the best Flutter developers we worked with. Highly recommended."</p><span>Fiverr Client</span></div>
-      <div class="review-card"><p>"Great mobile app performance and UI. We will definitely work again."</p><span>Startup Client</span></div>
-      <div class="review-card"><p>"Fatema solved complex Flutter issues very quickly. Amazing developer."</p><span>International Client</span></div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Fatema delivered our Flutter application perfectly with clean architecture."</p>
+        <div class="review-footer"><div class="review-avatar">NG</div><span>NGO Project Client</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Very professional developer. Communication was excellent and delivery was fast."</p>
+        <div class="review-footer"><div class="review-avatar">PM</div><span>Product Manager</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"One of the best Flutter developers we worked with. Highly recommended."</p>
+        <div class="review-footer"><div class="review-avatar">MB</div><span>Mobile App Client</span></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-band">
+<section id="contact" class="contact-band section-light">
   <div class="wrap">
     <h2>Work With Me</h2>
     <p>Looking for a Flutter developer to build your mobile app?</p>
